@@ -1,0 +1,209 @@
+/*
+TRAINSCHEDULE CSS STARTS HERE
+*/
+
+.page-title-container{
+    background-color: #E9967A;
+    color: #EEF1F0;
+    margin: 0px;
+}
+
+#add-train-menu {
+    background-color: #E9967A;
+    color: #EEF1F0;
+    border: 0px;
+    padding: 5px 15px;
+}
+
+#train-schedule-menu {
+    background-color: #ffffff;
+    color: #777777;
+    border: 0px;
+    padding: 0px;
+}
+
+.btn:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0rem rgba(0,123,255,.25);
+}
+
+.train-schedule-container {
+    padding: 0px;
+    margin: 0px;
+}
+
+#train-schedule-heading-row {
+    padding: 0px;
+    margin: 0px;
+}
+
+#train-schedule-row {
+    padding: 0px;
+    margin: 0px;
+}
+
+.train-schedule-heading {
+    padding: 0px;
+    margin: 0px;
+    font-weight: bold;
+}
+
+.train-schedule {
+    padding: 0px;
+    margin: 0px;
+}
+
+#message {
+    padding: 0px;
+    margin: 0px;
+    font-weight: bold;
+    color: #19D95F;
+    text-align: center;
+}
+
+#error-message {
+    padding: 0px;
+    margin: 0px;
+    font-weight: bold;
+    color: #F61D2C;
+    text-align: center;
+}
+
+#hr-heading-bottom {
+    margin-bottom: 8px;
+}
+
+#hr-bottom {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+#submit-and-more {
+    margin: 5px 5px 5px 0px;
+}
+
+#submit-and-close {
+    margin: 5px 5px 5px 0px;
+}
+
+
+.page-title{
+    margin: 16px 0px 0px 0px;
+}
+
+.page-subtitle{
+    margin: 0px 0px 8px 0px;
+}
+
+h1 {
+    margin-bottom: 0px;
+}
+
+p {
+    margin-bottom: 0px;
+}
+
+#menu {
+    margin: 0px;
+    background-color: #E9967A;
+}
+
+
+/*
+TRAINSCHEDULE CSS ENDS HERE
+*/
+
+
+a {
+    color: #777777;
+}
+
+.pageContent {
+    background-image: url(../images/circles-light.png);
+}
+
+#myName {
+    color: #ffffff;
+    background-color: #4aaaa5;
+    font-size: 28px;
+    border-color: #fff;
+}
+
+#navButtons {
+    text-align: end;
+}
+
+#aboutMe {
+    background-color: #fff;
+    color: #777777;
+    border-color: #fff;
+}
+
+#portfolio {
+    background-color: #fff;
+    color: #777777;
+    border-color: #fff;
+}
+
+#contact {
+    background-color: #fff;
+    color: #777777;
+    border-color: #fff;
+    padding: 3%;
+}
+
+#games {
+    background-image: url(images/Digital-gaming.jpg);
+    background-size: cover;
+    padding: 3%;
+    margin: 4% 1% 0% 0%;
+}
+
+#friends {
+    background-image: url(images/friends.jpg);
+    background-size: cover;
+    padding: 3%;
+    margin: 4% 1% 0% 0%;
+}
+
+#sports {
+    background-image: url(images/sports.jpg);
+    background-size: cover;
+    padding: 3%;
+    margin: 4% 1% 0% 0%;
+}
+
+#triathlon {
+    background-image: url(images/triathlon.jpg);
+    background-size: cover;
+    padding: 3%;
+    margin: 4% 1% 0% 0%;
+}
+
+#wedding {
+    background-image: url(images/wedding.jpg);
+    background-size: cover;
+    padding: 3%;
+    margin: 4% 1% 0% 0%;
+}
+
+
+    @media screen and (max-width: 767px) {
+
+        #navMyName {
+            text-align: center;
+        }
+        
+        #navButtons {
+            text-align: center;
+        }
+
+        #minutes-away-heading {
+            display:none;
+        }
+        
+        #minutes-away {
+            display:none;
+        }
+        
+        }
