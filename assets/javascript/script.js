@@ -340,11 +340,17 @@ $(document).ready(function () {
         $("#message").hide().delay(1000).fadeOut();
     };
 
+    //global var to show en we have successfully excecuted the submitFireBase()
+    var submitted = 0;
+    console.log(submitted);
+
 
     //create function submitFirebase() that will check all fields have a correct value, submit to Firebase, and clear the values in the fields
     var submitFireBase = function () {
         event.preventDefault();
 
+
+        //checks for the different type of errors that the form may have
         var errors = 0;
         var message = "\nPlease add a ";
 
@@ -353,28 +359,44 @@ $(document).ready(function () {
             message += "Train Name - "
         }
 
-        if ($("#destination-input").val().trim() == "") {
-            errors++;
-            message += "Destination - "
+        var destinationErrors = 0;
+        for (i = 0; i < $("#destination-input").val().trim().length; i++) {
+            if (!isNaN(parseInt($("#destination-input").val().trim()[i]))) {
+                destinationErrors++;
+            }
         }
 
-        if ($("#first-train-input").val().trim() == "" || $("#first-train-input").val().trim().length != 5) {
+        if ($("#destination-input").val().trim() == "" || destinationErrors > 0) {
+            errors++;
+            message += "Destination correctly - "
+        }
+
+        if ($("#first-train-input").val().trim() == "" || $("#first-train-input").val().trim().length != 5 || isNaN(parseInt($("#first-train-input").val().trim()[0])) || isNaN($("#first-train-input").val().trim()[1]) || isNaN(parseInt($("#first-train-input").val().trim()[3])) || isNaN(parseInt($("#first-train-input").val().trim()[4])) || parseInt($("#first-train-input").val().trim()[0]) * 10 + parseInt($("#first-train-input").val().trim()[1]) > 23 || parseInt($("#first-train-input").val().trim()[3]) * 10 + parseInt($("#first-train-input").val().trim()[4]) > 59) {
             errors++;
             message += "First Train Time correctly - "
         }
 
-        if ($("#frequency-input").val().trim() == "") {
-            errors++;
-            message += "Frequency - "
+        var frequencyErrors = 0;
+        for (i = 0; i < $("#frequency-input").val().trim().length; i++) {
+            if (isNaN(parseInt($("#frequency-input").val().trim()[i]))) {
+                frequencyErrors++;
+            }
         }
 
+        if ($("#frequency-input").val().trim() == "" || frequencyErrors > 0) {
+            errors++;
+            message += "Frequency correctly - "
+        }
 
 
         if (errors > 0) {
 
+            //if error message was hidden before, show it
+            $("#error-message").show();
             return $("#error-message").text(message);
 
         } else {
+
 
             // Grabs user input
             var trainName = $("#train-name-input").val().trim();
@@ -414,6 +436,10 @@ $(document).ready(function () {
             messageNewTrainAdded();
 
 
+            //increase the submitted global variable by one to make sure the function when clicking submit-and-close runs completely
+            submitted ++
+            console.log(submitted);
+
         }
     };
 
@@ -428,6 +454,11 @@ $(document).ready(function () {
         //Call the submitFirebase() function
         submitFireBase();
 
+        if (submitted == 1) {
+        //decrease the submitted global variable by one to make sure the function when clicking submit-and-close runs correctly next time
+        submitted --
+        console.log(submitted);
+        }
     });
 
 
@@ -440,18 +471,23 @@ $(document).ready(function () {
         //Call the submitFirebase() function
         submitFireBase();
 
-        //change the color of the tabs to orange and white
-        $("#train-schedule-menu").css({ "background-color": "#ffffff", "color": "#777777" });
-        $("#add-train-menu").css({ "background-color": "#E9967A", "color": "#EEF1F0" })
+        if (submitted == 1) {
+            //change the color of the tabs to orange and white
+            $("#train-schedule-menu").css({ "background-color": "#ffffff", "color": "#777777" });
+            $("#add-train-menu").css({ "background-color": "#E9967A", "color": "#EEF1F0" })
 
 
-        //hide the Add Train stuff and show the current train schedule stuff
-        $(".add-train").hide();
-        $(".train-schedule-container").show();
+            //hide the Add Train stuff and show the current train schedule stuff
+            $(".add-train").hide();
+            $(".train-schedule-container").show();
 
-        //refresh the table to get the most updated data
-        location.reload();
+            //refresh the table to get the most updated data
+            location.reload();
 
+            //decrease the submitted global variable by one to make sure the function when clicking submit-and-close runs correctly next time
+            submitted --
+            console.log(submitted);
+        }
     });
 
 
